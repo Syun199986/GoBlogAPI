@@ -2,15 +2,12 @@ package handlers
 
 import (
 	"encoding/json"
-	// "errors"
-	"fmt"
-	// "io"
 	"net/http"
 	"strconv"
+	"log"
 
 	"github.com/Syun199986/GoBlogAPI/models"
 	"github.com/gorilla/mux"
-	// "github.com/sqs/goreturns/returns"
 )
 
 func PostArticleHandler(w http.ResponseWriter, req *http.Request) {
@@ -43,7 +40,7 @@ func ArticleListHandler(w http.ResponseWriter, req *http.Request) {
 	}
 
 	// エラー回避用
-	fmt.Println(page)
+	log.Println(page)
 
 	article := []models.Article{models.Article1, models.Article2}
 	json.NewEncoder(w).Encode(article)
@@ -57,7 +54,7 @@ func ArticleDetailHandler(w http.ResponseWriter, req *http.Request) {
 	}
 
 	// エラー回避用
-	fmt.Println(articleID)
+	log.Println(articleID)
 
 	article := models.Article1
 	json.NewEncoder(w).Encode(article)
